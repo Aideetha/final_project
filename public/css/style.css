@@ -1,0 +1,68 @@
+#adminNavbar{
+    background-color: rgb(3, 172, 14)!important;
+}
+.colorWhite{
+    color: white!important;
+}
+.boldText{
+    font-weight: 500;
+}
+.cardMargin {
+  margin-top: 50%;
+}
+.productImage {
+  width: 300px;
+  height: 300px;
+}
+.cartProductImage{
+    width: 200px;
+    height: 200px;
+}
+.adminProductImage{
+    width: 100px;
+    height: 100px;
+}
+.cardPadding{
+    padding: 5px;
+}
+.cardHeader{
+    background-color:  rgb(3, 172, 14);
+    color: white;
+}
+.hoverItem:hover{
+    background-color: lightgrey;
+}
+.cardTitle {
+  color: #42ace9;
+}
+.detailBox{
+    background-color: lightgrey;
+    height: 300px;
+}
+.productContainer{
+    width: 100%;
+    height: 500px;
+}
+.lightGreyBackground{
+    background-color: lightgrey;
+}
+.noBorder{
+    border: 0px;
+}
+.noBorderRadius{
+    border-radius: 0px;
+}
+.productPrice{
+    color: #FF790F;
+    font-size: xx-large;
+    font-weight: 500;
+}
+.list-group-flush > .listItem {
+    border-width: 0 0 1px;
+}
+.listItem{
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
