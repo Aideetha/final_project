@@ -16,15 +16,11 @@ use Illuminate\Support\Facades\Response;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -43,12 +39,23 @@ Route::get('storage/app/{filename}', function ($filename) {
     return $response;
 });
 
-Route::get('admin', 'AdminController@showAdminHomePage')->name('adminHomePage');
-Route::get('admin/add-category', 'AdminController@showAdminAddCategoryPage');
-Route::get('admin/add-product', 'AdminController@showAdminAddProductPage');
-Route::get('admin/products', 'AdminController@showProductListPage');
-Route::get('admin/categories', 'AdminController@showCategoryListPage');
-Route::post('postCategory', 'AdminController@registerNewCategory');
-Route::post('postProduct', 'AdminController@registerNewProduct');
-Route::get('product/delete/{id}', 'AdminController@deleteProduct');
-Route::get('category/{categoryName}', 'AdminController@showProductByCategoryId');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('login');
+});
+
+Route::middleware(['web', 'auth', 'roles:Admin'])->group(function(){
+    Route::get('admin', 'AdminController@showAdminHomePage')->name('adminHomePage');
+    Route::get('admin/add-category', 'AdminController@showAdminAddCategoryPage');
+    Route::get('admin/add-product', 'AdminController@showAdminAddProductPage');
+    Route::get('admin/products', 'AdminController@showProductListPage');
+    Route::get('admin/categories', 'AdminController@showCategoryListPage');
+    Route::post('postCategory', 'AdminController@registerNewCategory');
+    Route::post('postProduct', 'AdminController@registerNewProduct');
+    Route::get('product/delete/{id}', 'AdminController@deleteProduct');
+    Route::get('category/{categoryName}', 'AdminController@showProductByCategoryId');
+});
+
+Route::middleware(['web', 'auth', 'notAdmin'])->group(function(){
+    Route::get('/$okopedia', 'CustomerController@showCustomerHomepage');
+});

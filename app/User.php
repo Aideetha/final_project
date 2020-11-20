@@ -38,4 +38,15 @@ class User extends Authenticatable
     ];
 
     protected $table = 'users';
+
+    public function role(){
+        return $this->belongsTo('App\Role', 'role_id', 'role_id');
+    }
+
+    public function hasRole($role){
+        if ($this->role()->where('role_name', $role)->first()) {
+            return true;
+        }
+        return false;
+    }
 }
