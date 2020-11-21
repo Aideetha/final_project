@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
@@ -16,13 +17,9 @@ use Illuminate\Support\Facades\Response;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/authenticateLogin', [LoginController::class, 'authenticate']);
 
 Route::get('storage/app/{filename}', function ($filename) {
     $url = storage_path('app/' . $filename);
@@ -56,6 +53,6 @@ Route::middleware(['web', 'auth', 'roles:Admin'])->group(function(){
     Route::get('category/{categoryName}', 'AdminController@showProductByCategoryId');
 });
 
-Route::middleware(['web', 'auth', 'notAdmin'])->group(function(){
+Route::middleware(['web', 'notAdmin'])->group(function(){
     Route::get('/$okopedia', 'CustomerController@showCustomerHomepage');
 });

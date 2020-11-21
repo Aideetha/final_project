@@ -13,10 +13,11 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
-    {
+    public function handle($request, Closure $next, $role){
+        
         if(!$request->user()->hasRole($role)){
             return abort(401, 'You don\'t have authorized access.');
         }
         return $next($request);        
     }
+}
