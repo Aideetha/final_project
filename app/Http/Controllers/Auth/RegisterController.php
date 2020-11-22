@@ -30,7 +30,6 @@ class RegisterController extends Controller
      *`
      * @var string
      */
-    // protected $redirectTo = '/admin';
     public function redirectTo(){
         $role = Auth::user()->role_id;
         if ($role == 2) {

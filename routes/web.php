@@ -56,3 +56,9 @@ Route::middleware(['web', 'auth', 'roles:Admin'])->group(function(){
 Route::middleware(['web', 'notAdmin'])->group(function(){
     Route::get('/$okopedia', 'CustomerController@showCustomerHomepage');
 });
+
+Route::middleware(['web', 'auth', 'roles:Customer', 'notAdmin'])->group(function(){
+    Route::get('$okopedia/product-{productId}', 'CustomerController@showProductDetailPage');
+    Route::get('$okopedia/cart', 'CustomerController@showCartPage');
+    Route::get('addToCart-{productId}', 'CustomerController@addProductToCart');
+});

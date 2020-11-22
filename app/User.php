@@ -40,7 +40,11 @@ class User extends Authenticatable
     protected $table = 'users';
 
     public function role(){
-        return $this->belongsTo('App\Role', 'role_id', 'role_id');
+        return $this->hasOne('App\Role', 'role_id', 'role_id');
+    }
+
+    public function cart(){
+        return $this->belongsTo('App\Cart');
     }
 
     public function hasRole($role){

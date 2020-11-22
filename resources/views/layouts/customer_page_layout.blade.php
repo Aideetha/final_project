@@ -47,9 +47,16 @@
                   Search
                 </button>
                 @if (Auth::check())
-                  <button class="btn btn-success mr-sm-2" type="button">
-                  Cart <span class="badge badge-light">0</span>
-                </button>
+                  <a href="{{url('$okopedia/cart')}}" class="btn btn-success mr-sm-2" role="button">
+                    Cart
+                    <span class="badge badge-light">
+                      @if ($carts->isEmpty())
+                          0
+                      @else
+                          {{$carts->count()}}
+                      @endif
+                    </span>
+                  </a>
                 <button class="btn btn-success" type="button">History</button>
               </form>
             </li>

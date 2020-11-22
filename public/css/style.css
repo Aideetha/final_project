@@ -36,8 +36,7 @@
   color: #42ace9;
 }
 .detailBox{
-    background-color: lightgrey;
-    height: 300px;
+    height: 100%;
 }
 .productContainer{
     width: 100%;

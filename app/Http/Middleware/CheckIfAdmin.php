@@ -16,11 +16,6 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
-        // if (Auth::user()->role_id == 2) {
-        //     return abort(401, 'You don\'t have authorized access.');
-        // }
-        // return $next($request);
-
         if(Auth::check()){
             if (Auth::user()->role_id == 2) {
                 return abort(401, 'You don\'t have authorized access.');

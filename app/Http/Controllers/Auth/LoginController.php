@@ -42,7 +42,7 @@ class LoginController extends Controller
             // Authentication passed...
             $role = Auth::user()->role_id;
             if ($role == 2) {
-                return redirect(url('/$okopedia'));
+                return redirect(url('/admin'));
             } else {
                 return redirect(url(RouteServiceProvider::HOME));
             }
