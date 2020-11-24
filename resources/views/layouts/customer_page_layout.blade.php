@@ -15,7 +15,7 @@
       <div class="container justify-content-around">
         <a
           class="navbar-brand"
-          href="#"
+          href="{{'/$okopedia'}}"
           style="color: rgb(3, 172, 14); font-weight: 500"
           >$okopedia</a
         >
@@ -57,7 +57,7 @@
                       @endif
                     </span>
                   </a>
-                <button class="btn btn-success" type="button">History</button>
+                <a href="{{url('$okopedia/transaction-history')}}" class="btn btn-success" role="button">History</a>
               </form>
             </li>
             <li class="nav-item dropdown">

@@ -47,6 +47,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Cart');
     }
 
+    public function transaction_history(){
+        return $this->belongsTo('App\TransactionHistory');
+    }
+
     public function hasRole($role){
         if ($this->role()->where('role_name', $role)->first()) {
             return true;

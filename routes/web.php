@@ -58,7 +58,12 @@ Route::middleware(['web', 'notAdmin'])->group(function(){
 });
 
 Route::middleware(['web', 'auth', 'roles:Customer', 'notAdmin'])->group(function(){
+    Route::get('$okopedia/transaction-history', 'CustomerController@showTransactionHistoryPage');
+    Route::get('$okopedia/transaction-detail-{createdAt}', 'CustomerController@showTransactionDetailPage');
     Route::get('$okopedia/product-{productId}', 'CustomerController@showProductDetailPage');
     Route::get('$okopedia/cart', 'CustomerController@showCartPage');
-    Route::get('addToCart-{productId}', 'CustomerController@addProductToCart');
+    Route::get('cart/addToCart-{productId}', 'CustomerController@addProductToCart');
+    Route::get('cart/update-{productId}', 'CustomerController@updateProductQuantity');
+    Route::get('cart/delete-{productId}', 'CustomerController@deleteProductFromCart');
+    Route::get('cart/checkout', 'CustomerController@checkoutTransaction');    
 });

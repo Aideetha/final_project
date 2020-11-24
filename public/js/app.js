@@ -49893,3 +49893,22 @@ module.exports = __webpack_require__(/*! D:\Documents\kuliah\project_web_prog\fi
 /***/ })
 
 /******/ });
+
+function edit(id) {
+    var updateButton = document.getElementById("updateButton".concat(id));
+    var qtyTextBox = document.getElementById("quantity".concat(id));
+    var qtySpan = document.getElementById("qtySpan".concat(id));
+
+    if (
+        updateButton.style.display === "none" &&
+        qtyTextBox.style.display === "none"
+    ) {
+        qtyTextBox.style.display = "inline-block";
+        updateButton.style.display = "inline-block";
+        qtySpan.style.display = "none";
+    } else {
+        qtyTextBox.style.display = "none";
+        updateButton.style.display = "none";
+        qtySpan.style.display = "inline-block";
+    }
+}

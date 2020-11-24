@@ -22,7 +22,7 @@
               </h5>
               <hr />
               <p>Description: {{$product->product_description}}</p>
-              <form method="GET" action="{{url('addToCart-'.$product->product_id)}}">
+              <form method="GET" action="{{url('cart/addToCart-'.$product->product_id)}}">
                 @csrf
                 <div class="form-group">
                   <label for="quantity">Quantity</label>

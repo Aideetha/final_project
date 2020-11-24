@@ -33,7 +33,7 @@ class RegisterController extends Controller
     public function redirectTo(){
         $role = Auth::user()->role_id;
         if ($role == 2) {
-            return '/admin';
+            return redirect(url('/admin'));
         } else {
             return redirect(RouteServiceProvider::HOME);
         }
